@@ -3,6 +3,7 @@ import React from 'react'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
 import theme from '../../theme'
+import { Fonts } from '../fonts'
 
 const AppConfig: React.FC<{
   children: React.ReactElement | Array<React.ReactElement>
@@ -12,6 +13,7 @@ const AppConfig: React.FC<{
 
   return (
     <>
+      <Fonts />
       <ChakraProvider theme={themeExt}>{children}</ChakraProvider>
     </>
   )
