@@ -433,6 +433,12 @@ export default {
       minHeight: 's24'
     },
 
+    input: {
+      py: '0',
+      px: 's14',
+      h: '100%'
+    },
+
     // Old
     heroLong: {
       fontSize: '1rem',

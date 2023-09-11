@@ -53,6 +53,26 @@ export default {
       }
     },
 
+    labelRequired: (
+      props: { colorScheme?: string; className?: string } & Project.Utils.ObjectKeyUnknown
+    ): Project.Utils.ObjectKeyUnknown => {
+      const colorSchemeStyles = getColorSchemeStyle(props.colorScheme || 'default')
+      const classStyles = props.className ? getClassStyles(props.className) : {}
+
+      const variantStyle = {
+        _after: {
+          content: '"*"',
+          color: 'system_redish.100'
+        }
+      }
+
+      return {
+        ...colorSchemeStyles,
+        ...classStyles,
+        ...variantStyle
+      }
+    },
+
     button_text: (
       props: { colorScheme?: string; className?: string } & Project.Utils.ObjectKeyUnknown
     ): Project.Utils.ObjectKeyUnknown => {

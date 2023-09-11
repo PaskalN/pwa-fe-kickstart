@@ -110,6 +110,34 @@ export default {
       return _.merge(baseStyleReset, colorSchemeStyles, classStyles, variantStyle)
     },
 
+    oAuth: (
+      props: { colorScheme?: string; className?: string } & Project.Utils.ObjectKeyUnknown
+    ): Project.Utils.ObjectKeyUnknown => {
+      const colorSchemeStyles = getColorSchemeStyle(props.colorScheme || 'default')
+      const classStyles = props.className ? getClassStyles(props.className) : {}
+
+      const variantStyle = {
+        // parts dialog, header, body, footer
+        body: {},
+        header: {
+          h: 's64',
+          display: 'flex',
+          alignItems: 'center',
+          flexShrink: 'initial',
+          flexBasis: 'initial',
+          flexDirection: 'row-reverse',
+          boxShadow: 'none'
+        },
+        dialog: {
+          bg: 'neutral.30',
+          px: 's21',
+          maxWidth: '25.875rem'
+        }
+      }
+
+      return _.merge(baseStyleReset, colorSchemeStyles, classStyles, variantStyle)
+    },
+
     // OLD IMPLEMENTATION
     footer: {
       header: {

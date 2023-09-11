@@ -137,6 +137,68 @@ export const MCMCloseButton = createIcon({
   )
 })
 
+export const MCMCloseButtonDrawer = createIcon({
+  displayName: 'MCMCloseButtonDrawer',
+  viewBox: '0 0 24 24',
+
+  path: (
+    <path
+      fill="currentColor"
+      d="M12.364 10.95L17.314 6L18.728 7.414L13.778 12.364L18.728 17.314L17.314 18.728L12.364 13.778L7.414 18.728L6 17.314L10.95 12.364L6 7.414L7.414 6L12.364 10.95Z"
+    />
+  )
+})
+
+export const MCMCircleEmpty = createIcon({
+  displayName: 'MCMCircleEmpty',
+  viewBox: '0 0 18 20',
+
+  path: (
+    <path
+      fill="currentColor"
+      d="M9 17.7858C4.85775 17.7858 1.5 14.3001 1.5 10.0001C1.5 5.70002 4.85775 2.21436 9 2.21436C13.1423 2.21436 16.5 5.70002 16.5 10.0001C16.5 14.3001 13.1423 17.7858 9 17.7858ZM9 16.2286C10.5913 16.2286 12.1174 15.5724 13.2426 14.4043C14.3679 13.2363 15 11.652 15 10.0001C15 8.34815 14.3679 6.76389 13.2426 5.5958C12.1174 4.42772 10.5913 3.7715 9 3.7715C7.4087 3.7715 5.88258 4.42772 4.75736 5.5958C3.63214 6.76389 3 8.34815 3 10.0001C3 11.652 3.63214 13.2363 4.75736 14.4043C5.88258 15.5724 7.4087 16.2286 9 16.2286Z"
+    />
+  )
+})
+
+export const MCMCircleCheck = createIcon({
+  displayName: 'MCMCircleCheck',
+  viewBox: '0 0 18 20',
+
+  path: (
+    <>
+      <path>
+        <rect width="18" height="18.6857" transform="translate(0 0.657227)" fill="white" />
+      </path>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.99963 17.1572C4.85738 17.1572 1.49963 13.7995 1.49963 9.65723C1.49963 5.51498 4.85738 2.15723 8.99963 2.15723C13.1419 2.15723 16.4996 5.51498 16.4996 9.65723C16.4996 13.7995 13.1419 17.1572 8.99963 17.1572ZM5.06909 10.225L8.25134 13.4072L13.5546 8.10396L12.4933 7.04346L8.25134 11.2862L6.12959 9.16447L5.06909 10.225Z"
+      />
+    </>
+  )
+})
+
+export const MCMCircleError = createIcon({
+  displayName: 'MCMCircleError',
+  viewBox: '0 0 18 20',
+
+  path: (
+    <path
+      fill="currentColor"
+      d="M8.99963 16.5C4.85738 16.5 1.49963 13.1423 1.49963 9C1.49963 4.85775 4.85738 1.5 8.99963 1.5C13.1419 1.5 16.4996 4.85775 16.4996 9C16.4996 13.1423 13.1419 16.5 8.99963 16.5ZM8.99963 7.9395L6.87863 5.81775L5.81738 6.879L7.93913 9L5.81738 11.121L6.87863 12.1823L8.99963 10.0605L11.1206 12.1823L12.1819 11.121L10.0601 9L12.1819 6.879L11.1206 5.81775L8.99963 7.9395Z"
+    />
+  )
+})
+
+export const MCMRequire = createIcon({
+  displayName: 'MCMRequire',
+  viewBox: '0 0 7 6',
+
+  path: <path d="M1 5L6 1.5M1 1.5L6 5M3.5 6V0" stroke="currentColor" />
+})
+
 export const MCMTagIcon = createIcon({
   displayName: 'MCMTagIcon',
   viewBox: '0 0 24 24',
@@ -277,6 +339,18 @@ export const MCMPlus = createIcon({
   path: (
     <path
       d="M6.90924 5.57609L11.5761 5.57609L11.5761 6.90922L6.90924 6.90922L6.90924 11.5761H5.57611L5.57611 6.90922L0.909204 6.90922L0.909204 5.57609L5.57611 5.57609L5.57611 0.909181H6.90924L6.90924 5.57609Z"
+      fill="currentColor"
+    />
+  )
+})
+
+export const MCMError = createIcon({
+  displayName: 'MCMError',
+  viewBox: '0 0 24 24',
+
+  path: (
+    <path
+      d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11 15V17H13V15H11ZM11 7V13H13V7H11Z"
       fill="currentColor"
     />
   )

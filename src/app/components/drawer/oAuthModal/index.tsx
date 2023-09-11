@@ -1,17 +1,12 @@
 import React from 'react'
 
-import {
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay
-} from '@chakra-ui/react'
+import { Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex } from '@chakra-ui/react'
+
+import OAuthContent from './patials/OAuthContent'
 
 import { useProjectDisclosure } from '../../context'
+
+import { MCMCloseButtonDrawer } from '../../mcmIcon'
 
 const OAuthModal: React.FC<{}> = () => {
   const disclosures = useProjectDisclosure()
@@ -23,20 +18,18 @@ const OAuthModal: React.FC<{}> = () => {
 
   return (
     <>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} variant="oAuth">
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader>
+            <Flex w="s30" h="s30" alignItems="center" justifyContent="center">
+              <MCMCloseButtonDrawer color="dark" fontSize="s24" onClick={() => onClose()} cursor="pointer" />
+            </Flex>
+          </DrawerHeader>
 
-          <DrawerBody></DrawerBody>
-
-          <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
+          <DrawerBody>
+            <OAuthContent />
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
