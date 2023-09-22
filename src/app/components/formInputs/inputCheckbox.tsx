@@ -11,21 +11,22 @@ const InputCheckbox: React.FC<
 > = props => {
   const { children } = props
   const inputProps = useInputProps(props)
-  const { form, fieldSettings, inputRef, outputValue } = inputProps
+  const { form, fieldSettings, inputRef, outputValue, name, onChange } = inputProps
 
   if (!fieldSettings || !form) return null
 
   const { register } = form
-  const registration = register(fieldSettings.name, fieldSettings.options)
   const [_, setOutputValue] = outputValue
+
+  const inputName = name || fieldSettings.name
 
   return (
     <Checkbox
+      name={inputName}
       size="sm"
       colorScheme="red"
-      {...registration}
       ref={element => {
-        registration.ref(element)
+        register(element, fieldSettings.options)
 
         if (inputRef) {
           inputRef.current = element
@@ -34,13 +35,15 @@ const InputCheckbox: React.FC<
         setOutputValue(element?.value || '')
       }}
       onChange={event => {
-        registration.onChange(event)
+        register(event.target, fieldSettings.options)
 
         if (inputRef) {
           inputRef.current = event.currentTarget
         }
 
         setOutputValue(event.currentTarget?.value || '')
+
+        onChange(event)
       }}
     >
       {children}

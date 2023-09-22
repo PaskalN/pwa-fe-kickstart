@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FormLabel, Text } from '@chakra-ui/react'
-import { FieldValues, UseFormReturn } from 'react-hook-form'
+import { FieldValues, UseFormMethods } from 'react-hook-form'
 
 import InputCheckbox from './inputCheckbox'
 import InputLabel from './inputLabel'
@@ -31,14 +31,26 @@ const FormWrapper: React.FC<{
 
 const FormInput: React.FC<{
   children?: React.ReactNode | Array<React.ReactNode>
-  form: UseFormReturn<FieldValues, unknown, undefined>
+  form: UseFormMethods<FieldValues>
   fieldSettings?: ProjectForms.Input.Settings
   type?: string
   inputRef?: React.MutableRefObject<HTMLInputElement | null>
   outputValue?: [string, React.Dispatch<React.SetStateAction<string>>]
   placeholder?: string
+  name?: string
+  onChange?: (_ev?: React.ChangeEvent<HTMLInputElement>) => void
 }> = props => {
-  const { children, form = null, placeholder = '', fieldSettings, type = 'text', inputRef, outputValue } = props
+  const {
+    children,
+    name = '',
+    form = null,
+    placeholder = '',
+    fieldSettings,
+    type = 'text',
+    inputRef,
+    outputValue,
+    onChange = () => {}
+  } = props
 
   const inputType = fieldSettings?.type || type
 
@@ -53,6 +65,8 @@ const FormInput: React.FC<{
           inputRef={inputRef}
           outputValue={outputValue}
           placeholder={placeholder}
+          name={name}
+          onChange={onChange}
         />
       </FormWrapper>
     )
@@ -62,11 +76,13 @@ const FormInput: React.FC<{
     return (
       <FormWrapper fieldSettings={fieldSettings}>
         <InputPassword
+          name={name}
           form={form}
           fieldSettings={fieldSettings}
           inputRef={inputRef}
           outputValue={outputValue}
           placeholder={placeholder}
+          onChange={onChange}
         />
       </FormWrapper>
     )
@@ -74,7 +90,14 @@ const FormInput: React.FC<{
 
   if (['checkbox'].includes(inputType)) {
     return (
-      <InputCheckbox form={form} fieldSettings={fieldSettings} inputRef={inputRef} outputValue={outputValue}>
+      <InputCheckbox
+        name={name}
+        form={form}
+        fieldSettings={fieldSettings}
+        inputRef={inputRef}
+        outputValue={outputValue}
+        onChange={onChange}
+      >
         <Text variant="default" size="f_body_M">
           {children}
         </Text>
@@ -86,11 +109,13 @@ const FormInput: React.FC<{
     return (
       <FormWrapper fieldSettings={fieldSettings}>
         <InputPhoneSimple
+          name={name}
           form={form}
           fieldSettings={fieldSettings}
           inputRef={inputRef}
           outputValue={outputValue}
           placeholder={placeholder}
+          onChange={onChange}
         />
       </FormWrapper>
     )
@@ -99,11 +124,13 @@ const FormInput: React.FC<{
   return (
     <FormWrapper fieldSettings={fieldSettings}>
       <InputText
+        name={name}
         form={form}
         fieldSettings={fieldSettings}
         inputRef={inputRef}
         outputValue={outputValue}
         placeholder={placeholder}
+        onChange={onChange}
       />
     </FormWrapper>
   )

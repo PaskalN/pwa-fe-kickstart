@@ -8,6 +8,8 @@ declare namespace ProjectForms {
       inputRef?: React.MutableRefObject<HTMLInputElement | null>
       outputValue?: [string, React.Dispatch<React.SetStateAction<string>>]
       placeholder?: string
+      name: string
+      onChange: (_ev?: React.ChangeEvent<HTMLInputElement>) => void
     }
 
     interface Settings {

@@ -6,7 +6,7 @@ import RequestResetPasswordForm from './forms/requestResetPasswordForm'
 import ResetPasswordForm from './forms/resetPasswordForm'
 
 const OAuthContent: React.FC<{}> = () => {
-  const [formState, setFormState] = useState<number>(3)
+  const [formState, setFormState] = useState<number>(0)
 
   if (formState === 0) return <LoginForm formStateSetter={setFormState} />
   if (formState === 1) return <RegisterForm formStateSetter={setFormState} />

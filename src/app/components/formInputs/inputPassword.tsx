@@ -6,29 +6,30 @@ import { inputColorScheme, useInputProps } from '../../utils/formUtils'
 
 const InputPassword: React.FC<ProjectForms.Input.ComponentProps> = props => {
   const inputProps = useInputProps(props)
-  const { form, fieldSettings, inputRef, outputValue, placeholder, input } = inputProps
+  const { form, fieldSettings, inputRef, outputValue, placeholder, input, name, onChange } = inputProps
 
   if (!fieldSettings || !form) return null
 
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const { formState, register } = form
-  const registration = register(fieldSettings.name, fieldSettings.options)
   const [_, setOutputValue] = outputValue
   const placeholderValue = placeholder || fieldSettings.placeholder || ''
+  const inputName = name || fieldSettings.name
 
   return (
     <Flex position="relative">
       <Input
+        name={inputName}
         variant="default"
         size="lg"
         type={!showPassword ? 'password' : 'text'}
         id={fieldSettings.type}
         placeholder={placeholderValue}
         colorScheme={inputColorScheme(formState, fieldSettings.name)}
-        {...registration}
         paddingRight="s100"
         ref={element => {
-          registration.ref(element)
+          register(element, fieldSettings.options)
+
           input.current = element
           if (inputRef) {
             inputRef.current = element
@@ -37,7 +38,8 @@ const InputPassword: React.FC<ProjectForms.Input.ComponentProps> = props => {
           setOutputValue(element?.value || '')
         }}
         onChange={event => {
-          registration.onChange(event)
+          register(event.currentTarget, fieldSettings.options)
+
           if (inputRef) {
             inputRef.current = event.currentTarget
           }
@@ -47,6 +49,7 @@ const InputPassword: React.FC<ProjectForms.Input.ComponentProps> = props => {
           }
 
           setOutputValue(event.currentTarget?.value || '')
+          onChange(event)
         }}
       />
 

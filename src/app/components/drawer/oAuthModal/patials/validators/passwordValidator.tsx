@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 
 import { VStack } from '@chakra-ui/react'
 
-import { FieldValues, UseFormReturn } from 'react-hook-form'
+import { FieldValues, UseFormMethods } from 'react-hook-form'
 
 import ValidationBullet from '../validationBullet'
 
 const PasswordValidator: React.FC<{
   inputValue?: string
-  form: UseFormReturn<FieldValues, unknown, undefined>
+  form: UseFormMethods<FieldValues>
 }> = props => {
   const { inputValue, form } = props
 

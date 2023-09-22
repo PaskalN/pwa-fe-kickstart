@@ -6,26 +6,27 @@ import { inputColorScheme, useInputProps } from '../../utils/formUtils'
 
 const InputPhoneSimple: React.FC<ProjectForms.Input.ComponentProps> = props => {
   const inputProps = useInputProps(props)
-  const { form, fieldSettings, inputRef, outputValue, placeholder } = inputProps
+  const { form, fieldSettings, inputRef, outputValue, placeholder, name, onChange } = inputProps
 
   if (!fieldSettings || !form) return null
 
   const { formState, register } = form
   const placeholderValue = placeholder || fieldSettings.placeholder || ''
-  const registration = register(fieldSettings.name, fieldSettings.options)
+
   const [_, setOutputValue] = outputValue
+  const inputName = name || fieldSettings.name
 
   return (
     <Input
+      name={inputName}
       variant="default"
       size="lg"
       type={fieldSettings.type}
       id={fieldSettings.type}
       placeholder={placeholderValue}
       colorScheme={inputColorScheme(formState, fieldSettings.name)}
-      {...registration}
       ref={element => {
-        registration.ref(element)
+        register(element, fieldSettings.options)
 
         if (inputRef) {
           inputRef.current = element
@@ -34,13 +35,15 @@ const InputPhoneSimple: React.FC<ProjectForms.Input.ComponentProps> = props => {
         setOutputValue(element?.value || '')
       }}
       onChange={event => {
-        registration.onChange(event)
+        register(event.currentTarget, fieldSettings.options)
 
         if (inputRef) {
           inputRef.current = event.currentTarget
         }
 
         setOutputValue(event.currentTarget?.value || '')
+
+        onChange(event)
       }}
     />
   )

@@ -66,8 +66,13 @@ const ResetPasswordForm: React.FC<{
                 colorScheme="default"
                 type="submit"
                 onClick={() => {
-                  const state = form.getFieldState(fields.password.name, form.formState)
-                  if (state.error) {
+                  const formState = form.formState
+                  const errors = formState.errors
+
+                  if (!(fields.password.name in errors)) return
+
+                  const errorState = errors[fields.password.name]
+                  if (errorState) {
                     setError(true)
                   }
                 }}

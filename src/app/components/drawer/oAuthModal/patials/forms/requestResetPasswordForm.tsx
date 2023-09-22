@@ -13,10 +13,11 @@ const RequestResetPasswordForm: React.FC<{
   const { formStateSetter = () => {} } = props
   const form = useForm()
   const { handleSubmit } = form
-  const emailValue = form.getValues().email
+  // const emailValue = form.getValues().email
 
   const errorState = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
+  const [emailValue, setEmailValue] = useState<string>('')
 
   const fields = {
     email: {
@@ -105,7 +106,15 @@ const RequestResetPasswordForm: React.FC<{
         >
           <VStack gap="s24" alignItems="stretch">
             false
-            <FormInput form={form} fieldSettings={fields.email} type="email" />
+            <FormInput
+              form={form}
+              fieldSettings={fields.email}
+              type="email"
+              onChange={e => {
+                if (!e || !e.currentTarget?.value) return
+                setEmailValue(e.currentTarget?.value)
+              }}
+            />
             <VStack gap="s16" alignItems="stretch">
               <Button type="submit" variant="default" size="lgb" colorScheme="default">
                 Send Reset Password Email

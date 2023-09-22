@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-import { FieldValues, FormState, UseFormReturn } from 'react-hook-form'
+import { FieldValues, FormState, UseFormMethods } from 'react-hook-form'
 export const inputColorScheme = (formState: FormState<FieldValues>, fieldName: string): string => {
   const errorState = formState.errors?.[fieldName]
   const dirtyField = formState.dirtyFields?.[fieldName]
@@ -25,15 +25,17 @@ export const inputColorScheme = (formState: FormState<FieldValues>, fieldName: s
 export const useInputProps = (
   props: ProjectForms.Input.ComponentProps
 ): {
-  form: UseFormReturn<FieldValues, unknown, undefined>
+  form: UseFormMethods<FieldValues>
   fieldSettings?: ProjectForms.Input.Settings
   inputRef?: React.MutableRefObject<HTMLInputElement | null>
   outputValue: [string, React.Dispatch<React.SetStateAction<string>>]
   placeholder?: string
   input: React.MutableRefObject<HTMLInputElement | null>
   outputValueAux: [string, React.Dispatch<React.SetStateAction<string>>]
+  name: string
+  onChange: (_ev?: React.ChangeEvent<HTMLInputElement>) => void
 } => {
-  const { form = null, fieldSettings, inputRef, outputValue, placeholder = '' } = props
+  const { form = null, fieldSettings, inputRef, outputValue, placeholder = '', name = '', onChange = () => {} } = props
   const input = useRef<HTMLInputElement | null>(null)
   const outputValueAux = useState<string>('')
 
@@ -41,10 +43,12 @@ export const useInputProps = (
 
   return {
     form,
+    name,
     fieldSettings,
     inputRef,
     placeholder,
     input,
+    onChange,
     outputValueAux,
     outputValue: output
   }
