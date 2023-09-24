@@ -31,7 +31,7 @@
     "target": "es6",
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "./src/types/@project",
     ]
   }
 }

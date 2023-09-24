@@ -212,6 +212,6 @@ theme.components.BreadcrumbPDP = BreadcrumbPDP
 theme.components.ModalComponents = ModalComponents
 theme.components.List = List
 
-// console.log(theme)
+console.log(theme)
 
 export default theme
