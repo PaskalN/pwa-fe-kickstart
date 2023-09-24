@@ -5,7 +5,10 @@ import { render } from 'react-dom'
 
 import { Fonts } from './app/components/fonts'
 
-import InitialPage from './app/components/pages/Initial'
+// import InitialPage from './app/components/pages/Initial'
+
+import VideoPlayerPage from './app/components/pages/VideoPlayerPage/Initial'
+
 import theme from './app/theme'
 
 const themeExt = extendTheme(theme)
@@ -15,7 +18,8 @@ render(
     <ChakraProvider theme={themeExt}>
       <Fonts />
 
-      <InitialPage />
+      {/* <InitialPage /> */}
+      <VideoPlayerPage />
     </ChakraProvider>
   </div>,
   document.getElementById('root')

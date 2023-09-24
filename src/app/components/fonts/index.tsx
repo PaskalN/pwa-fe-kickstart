@@ -104,6 +104,9 @@ export const Fonts: FC = () => (
          url('fonts/mcm/MCMFavorit-BoldExtended.woff') format('woff');
     }
 
+    video.noControlsFullscreen::-webkit-media-controls-enclosure {
+      display: none !important;
+    }
   `}
   />
 )
