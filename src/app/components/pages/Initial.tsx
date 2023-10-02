@@ -8,7 +8,8 @@ import Header from '../header'
 
 const InitialPage: React.FC<{}> = () => {
   const globalDisclosure = {
-    OAUTH: useDisclosure()
+    OAUTH: useDisclosure(),
+    GLOBAL_MODAL: useDisclosure()
   }
 
   return (

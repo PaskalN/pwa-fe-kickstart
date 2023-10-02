@@ -6,6 +6,49 @@
 // body
 // footer
 
+const BASE = {
+  dialogContainer: {
+    h: '100vh !important',
+    left: '0px',
+    right: '0px',
+    top: '0px',
+    bottom: '0px',
+    boxShadow: 'none'
+  },
+  dialog: {
+    h: '100%',
+    w: '100%',
+    maxWidth: '100%',
+    background: 'transparent',
+    border: 'none',
+    paddingTop: '0px',
+    paddingBottom: '0px',
+    paddingLeft: '0px',
+    paddingRight: '0px',
+    paddingInlineStart: '0px',
+    paddingInlineEnd: '0px',
+    borderRadius: '0px',
+    overflow: 'hidden',
+    marginLeft: '0px',
+    marginRight: '0px',
+    marginTop: '0px',
+    marginBottom: '0px',
+    boxShadow: 'none'
+  },
+
+  body: {
+    paddingTop: 's8',
+    paddingBottom: 's8',
+    paddingInlineStart: 's8',
+    paddingInlineEnd: 's8',
+    h: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+}
+
 const NOTIFY_VARIANT = {
   dialog: {
     background: 'cognac.50',
@@ -207,6 +250,34 @@ const CONTACT_US = {
   }
 }
 
+const SHIPPING_AND_RETURNS = {
+  dialogContainer: {
+    ...BASE.dialogContainer
+  },
+
+  dialog: {
+    ...BASE.dialog
+  },
+
+  body: {
+    ...BASE.body
+  }
+}
+
+const GLOBAL_MODAL = {
+  dialogContainer: {
+    ...BASE.dialogContainer
+  },
+
+  dialog: {
+    ...BASE.dialog
+  },
+
+  body: {
+    ...BASE.body
+  }
+}
+
 export default {
   baseStyle: {
     dialog: { borderRadius: 'base' }
@@ -232,6 +303,12 @@ export default {
     },
     sizeGuide: {
       ...SIZE_GUIDE
+    },
+    shippingAndReturns: {
+      ...SHIPPING_AND_RETURNS
+    },
+    globalModal: {
+      ...GLOBAL_MODAL
     }
   }
 }

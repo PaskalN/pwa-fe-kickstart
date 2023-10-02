@@ -52,6 +52,7 @@
     "@typescript-eslint/parser": "^5.62.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "3.0.3"
+    "prettier": "3.0.3",
+    "react-zoom-pan-pinch": "^3.1.0"
   }
 }
