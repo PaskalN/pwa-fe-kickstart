@@ -60,6 +60,8 @@ import ContactUsPopUp from './components/project/contact-us-pop-up'
 import DrawerCard from './components/project/drawer-card'
 import DrawerMenu from './components/project/drawer-menu'
 import EditorialPage from './components/project/edittorial-page'
+import Embla from './components/project/emblaCarousel/Embla'
+import EmblaComponents from './components/project/emblaCarousel/EmblaComponents'
 import Footer from './components/project/footer'
 import Header from './components/project/header'
 import HomePage from './components/project/home-page'
@@ -150,6 +152,10 @@ const extendProps = {
     CarouselItem,
     ListComponent,
     CardPanel,
+
+    // Embla
+    Embla,
+    EmblaComponents,
 
     App,
     AccountPromotion,

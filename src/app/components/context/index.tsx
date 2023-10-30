@@ -12,6 +12,7 @@ export type Disclosure = {
 
 type DisclosureContext = {
   OAUTH?: Disclosure
+  GLOBAL?: Disclosure
 }
 
 export const DisclosureContext = createContext<DisclosureContext | null>(null)

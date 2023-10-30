@@ -129,6 +129,25 @@ const colorSchemeStyles: Project.Utils.ObjectKeyType<Project.Utils.ObjectKeyStri
       cursor: 'not-allowed',
       color: 'neutral.100'
     }
+  },
+
+  video_play: {
+    color: 'white',
+    backgroundColor: 'rgba(34, 34, 34, 0.80)',
+    boxShadow: ' 0px 2px 8px 0px rgba(0, 0, 0, 0.20)',
+
+    _hover: {
+      backgroundColor: 'gold.100'
+    },
+
+    _active: {
+      backgroundColor: 'gold.130'
+    },
+
+    _disabled: {
+      backgroundColor: 'disabled',
+      cursor: 'not-allowed'
+    }
   }
 }
 

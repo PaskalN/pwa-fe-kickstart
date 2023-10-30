@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
-import { Box, BoxProps, Flex, useBreakpointValue } from '@chakra-ui/react'
+import { Box, BoxProps, Flex } from '@chakra-ui/react'
 
 const designState = {
   base: {
@@ -43,22 +43,11 @@ const PlayerControlBox: React.FC<
     active?: boolean
     type?: 'default' | 'small'
     children: React.ReactNode | Array<React.ReactNode>
-    videoState: VideoPlayer.Hook | null
+    hovered?: boolean
   } & BoxProps
 > = props => {
-  const { videoState, children, active = true, ...rest } = props
+  const { hovered = false, children, active = true, ...rest } = props
   const [mousedown, setMousedown] = useState<boolean>(false)
-  const mobile = useBreakpointValue(
-    {
-      base: true,
-      l_xl: false
-    },
-    'false'
-  )
-
-  useEffect(() => {
-    videoState?.handlers.setVideoHover(false)
-  }, [videoState?.handlers.setDesktopFullscreen])
 
   return (
     <Flex
@@ -77,10 +66,8 @@ const PlayerControlBox: React.FC<
           active
             ? {
                 ...designState.base,
-                ...(!mobile && videoState?.playerStates?.videoHover && !videoState?.playerStates?.desktopFullscreen
-                  ? designState.playerHover
-                  : {}),
-                ...(!mobile ? designState.hover : {}),
+                ...(hovered ? designState.playerHover : {}),
+                ...(hovered ? designState.hover : {}),
                 ...(mousedown ? designState.pressed : {})
               }
             : {

@@ -93,6 +93,29 @@ export default {
       return _.merge(baseStyleReset, colorSchemeStyles, classStyles, variantStyle)
     },
 
+    clear: (
+      props: { colorScheme?: string; className?: string } & Project.Utils.ObjectKeyUnknown
+    ): Project.Utils.ObjectKeyUnknown => {
+      const colorSchemeStyles = getColorSchemeStyle(props.colorScheme || 'default')
+      const classStyles = props.className ? getClassStyles(props.className) : {}
+
+      const variantStyle = {
+        header: {},
+        footer: {},
+        body: {},
+        dialog: {
+          paddingLeft: 0,
+          paddingRight: 0,
+          paddingBottom: 0,
+          paddingTop: 0,
+          px: 0,
+          py: 0
+        }
+      }
+
+      return _.merge(baseStyleReset, colorSchemeStyles, classStyles, variantStyle)
+    },
+
     sizeGuide: (
       props: { colorScheme?: string; className?: string } & Project.Utils.ObjectKeyUnknown
     ): Project.Utils.ObjectKeyUnknown => {
